@@ -27,7 +27,7 @@ const comments: Comment[] = [
 export default function Reviews() {
   return (
     <section className="py-9">
-      <div className="grid-layout container-grid mb-9">
+      <div className="grid-layout grid-gap container-grid mb-9">
         <h3 className="col-span-6 col-start-2 text-lg font-secondary text-dark-blue">A sip of quality. A taste of community</h3>
       </div>
       <InfiniteSLider comments={comments} />

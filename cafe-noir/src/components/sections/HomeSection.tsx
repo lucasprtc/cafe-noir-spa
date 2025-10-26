@@ -62,7 +62,7 @@ export default function Home() {
       className="h-full relative"
     >
         <div
-            className="absolute h-svh w-full grid-layout container-grid content-end overflow-hidden z-10"
+            className="absolute h-svh w-full grid-layout grid-gap container-grid content-end overflow-hidden z-10"
             ref={heroContainerRef}
             style={{
             background: "linear-gradient(180deg, rgba(0,0,0,0.3) 38.3%, rgba(0,0,0,0) 50.51%), linear-gradient(0deg, rgba(22,22,22,0.1) 0%, rgba(22,22,22,0.1) 100%), url('/About/test.png') lightgray 50% / cover no-repeat",
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="h-svh relative overflow-hidden z-30">
             <img src="About/mascot.png" className='absolute z-30 w-[230px] right-[10%] -top-[20%]' alt="" />
-            <div className="container-grid h-full grid-layout content-center ">
+            <div className="container-grid h-full grid-layout grid-gap content-center ">
                 <div className="col-start-1 col-span-5 z-30 pb-[120px]">
                     <h1 className="font-bold text-almond text-[4.8rem] leading-18">Changing<br/>the Way<br/>the City<br/>Drinks Coffee</h1>
                     <h2 className='font-secondary text-almond text-lg leading-4'>Your new daily rituals in Helsinki</h2>
@@ -81,7 +81,7 @@ export default function Home() {
             </div>
             {/* <div className="absolute h-full top-0 left-0 w-full z-20">
                 <div
-                    className="h-full w-full grid-layout container-grid content-end overflow-hidden z-20"
+                    className="h-full w-full grid-layout grid-gap container-grid content-end overflow-hidden z-20"
                     ref={heroContainerRef}
                     style={{
                     background: "linear-gradient(180deg, rgba(0,0,0,0.3) 38.3%, rgba(0,0,0,0) 50.51%), linear-gradient(0deg, rgba(22,22,22,0.1) 0%, rgba(22,22,22,0.1) 100%), url('/About/test.png') lightgray 50% / cover no-repeat",
@@ -92,8 +92,8 @@ export default function Home() {
                 </div>
             </div> */}
         </div>
-        <div className='section-my container-grid grid-layout z-10'>
-            <div className="col-span-6 grid-layout grid-rows-2 z-10">
+        <div className='section-my container-grid grid-layout grid-gap z-10'>
+            <div className="col-span-6 grid-layout grid-gap grid-rows-2 z-10">
                 <img ref={manInstallRef} src="/About/ManInstall.png" alt=""  className='col-span-3 row-start-1 col-start-1 rounded'/>
                 <img src="/About/discution.png" alt="" className="col-span-3 row-start-2 col-start-1 rounded" />
                 <img ref={coffeeImgRef} src="/About/coffee.png" alt="" className="col-span-3 row-start-2 col-start-4 rounded" />

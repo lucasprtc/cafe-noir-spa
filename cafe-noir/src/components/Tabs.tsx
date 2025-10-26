@@ -39,7 +39,7 @@ export default function Tabs({ tabs }: TabsProps) {
   return (
     <div className="w-full">
       {/* Tab headers */}
-      <div className=" grid-layout container-grid ">
+      <div className=" grid-layout grid-gap container-grid ">
         {tabs.map((tab, index) => {
             const isActive = index === activeIndex;
             return (
@@ -55,7 +55,7 @@ export default function Tabs({ tabs }: TabsProps) {
       </div>
 
       {/* Tab content */}
-      <div className={`container-grid grid-layout pb-9 ${activeIndex === 0 ? 'bg-dark-blue text-almond' : 'bg-light-blue text-dark-blue'}`}>
+      <div className={`container-grid grid-layout grid-gap pb-9 ${activeIndex === 0 ? 'bg-dark-blue text-almond' : 'bg-light-blue text-dark-blue'}`}>
         {tabs[activeIndex].items.length === 0 ? (
           <p className="text-gray-500 col-span-6">No items available</p>
         ) : (

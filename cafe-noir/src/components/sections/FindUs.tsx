@@ -3,9 +3,9 @@ import Button from "../Buttons";
 
 export default function FindUs() {
   return (
-    <section className="pt-9 pb- bg-dark-blue container-grid">
+    <section className="pt-9 bg-dark-blue container-grid">
         <h3 className="font-bold text-2xl text-almond">Where to find us?</h3>
-        <div className="grid-layout">
+        <div className="grid-layout grid-gap">
             <div className="relative"></div>
             <img src="/About/PlaceIsometric.png" alt="" className="col-span-5 col-start-2 z-10" />
             <div className="col-span-6 flex flex-col items-end space-y-4 -translate-y-10">

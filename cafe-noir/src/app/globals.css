@@ -48,7 +48,11 @@
   
   /* Grille complète */
   .grid-layout {
-    @apply grid grid-cols-6 md:grid-cols-12 gap-4 md:gap-6;
+    @apply grid grid-cols-6 md:grid-cols-12;
+  }
+
+  .grid-gap {
+    @apply gap-4 md:gap-6;
   }
 
   .rounded {

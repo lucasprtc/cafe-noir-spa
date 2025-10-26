@@ -14,7 +14,7 @@ export default function About() {
     <section 
       id="Home" 
       ref={sectionRef}
-    //   className="h-svh relative grid-layout grid-container"
+    //   className="h-svh relative grid-layout grid-gap grid-container"
     >
 
     </section>  
