@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-bold: var(--font-roc-bold);
+  --font-primary: var(--font-roc-condensed);
+  --font-secondary: var(--font-garamond);
+
+  --color-almond: #FFF5EA;
+  --color-dark-blue: #044799;
+  --color-light-blue: #AAD0F0;
+  --color-light-orange: #F49E3E;
+  --color-coral: #ED6956;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 1rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.333rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.777rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 2.369rem;
+  --text-2xl--line-height: calc(2 / 1.8);
+  --text-3xl: 3.157rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 4.209rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 5.61rem;
+  --text-5xl--line-height: 1;
+}
+
+@layer utilities {
+  .font-primary {
+    font-family: var(--font-roc-condensed);
+  }
+  .font-bold {
+    font-family: var(--font-roc-bold);
+  }
+  .font-secondary {
+    font-family: var(--font-garamond);
+  }
+  /* Container avec marges de grille */
+  .container-grid {
+    @apply px-4 md:px-8;
+  }
+  
+  /* Grille complète */
+  .grid-layout {
+    @apply grid grid-cols-6 md:grid-cols-12 gap-4 md:gap-6;
+  }
+
+  .rounded {
+    @apply rounded-[10px];
+  }
+
+  .section-my {
+    @apply my-9 md:my-[100px];
+  }
+}
