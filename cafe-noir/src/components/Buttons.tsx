@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const selectedColor = colorClasses[color as keyof typeof colorClasses] || colorClasses.darkblue;
   
-  const baseClasses = `inline-block text-lg w-fit px-5 py-3 rounded-[5px] font-primary transition-colors duration-200 leading-6 ${selectedColor}`;
+  const baseClasses = `inline-block text-lg md:text-xl w-fit px-5 md:px-8 py-3 py-4 rounded-[5px] font-primary transition-colors duration-200 leading-6 leading-8 ${selectedColor}`;
 
   // Si c'est un bouton de soumission
   if (submit) {

@@ -63,3 +63,8 @@
     @apply my-9 md:my-[100px];
   }
 }
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}

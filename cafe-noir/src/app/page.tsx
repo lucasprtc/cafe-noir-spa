@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div className="bg-almond">
       <HomeSection />
-      <About />
       <Menu />
       <Reviews />
       <FindUs />

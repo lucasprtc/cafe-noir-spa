@@ -33,7 +33,7 @@ const menuTabs: Tab[] = [
 
 export default function Menu() {
   return (
-    <section className="py-8">
+    <section id="menu" className="">
       <Tabs tabs={menuTabs} />
     </section>
   );

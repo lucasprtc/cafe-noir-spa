@@ -59,15 +59,15 @@ export default function InfiniteSLider({ comments }: Comments) {
       <div ref={trackRef} className="flex gap-2 w-fit">
         {doubledImages.map((comment, index) => (
           <div
-            className={`w-[230px] rounded-[10px] flex flex-col gap-5 p-4 h-fit`}
+            className={`w-[230px] lg:w-[440px] rounded-[10px] flex flex-col gap-5 p-4 h-fit`}
             style={{backgroundColor: comment.color}}
             key={index}
           >
             <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7.00429 0V3.64286C5.08154 3.9127 4.12017 4.99206 4.12017 7.62302V7.8254H6.66094V17H0V10.254C0 2.76587 2.67811 0.404765 7.00429 0ZM16 0V3.64286C14.0773 3.9127 13.1159 4.99206 13.1159 7.62302V7.8254H15.6567V17H8.99571V10.254C8.99571 2.76587 11.6738 0.404765 16 0Z" fill="#F49E3E"/>
             </svg>
-            <p className="font-primary text-almond">{comment.description}</p>
-            <div className="flex flex-row justify-between">
+            <p className="font-primary lg:text-lg text-almond">{comment.description}</p>
+            <div className="flex flex-row justify-between items-center">
               <p className="font-secondary text-lg text-almond">{comment.name}</p>
               <svg className="rotate-180" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.00429 0V3.64286C5.08154 3.9127 4.12017 4.99206 4.12017 7.62302V7.8254H6.66094V17H0V10.254C0 2.76587 2.67811 0.404765 7.00429 0ZM16 0V3.64286C14.0773 3.9127 13.1159 4.99206 13.1159 7.62302V7.8254H15.6567V17H8.99571V10.254C8.99571 2.76587 11.6738 0.404765 16 0Z" fill="#F49E3E"/>

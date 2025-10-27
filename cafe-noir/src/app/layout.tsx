@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
+import { LenisProvider } from "@/components/ScrollSmooth";
+import Navbar from "@/components/layout/Navbar";
 
 const garamondBook = localFont({
   src: '../../public/fonts/itc-garamond-std-book-narrow.otf',
@@ -35,7 +37,10 @@ export default function RootLayout({
       <body
       className={`${garamondBook.variable} ${rocBold.variable} ${rocCondensed.variable} antialiased`}
       >
+        <LenisProvider>
+        <Navbar />
         {children}
+        </LenisProvider>
       </body>
     </html>
   );
