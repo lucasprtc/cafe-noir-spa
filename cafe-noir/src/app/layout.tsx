@@ -3,6 +3,7 @@ import "./globals.css";
 import localFont from 'next/font/local'
 import { LenisProvider } from "@/components/ScrollSmooth";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const garamondBook = localFont({
   src: '../../public/fonts/itc-garamond-std-book-narrow.otf',
@@ -40,6 +41,7 @@ export default function RootLayout({
         <LenisProvider>
         <Navbar />
         {children}
+        <Footer />
         </LenisProvider>
       </body>
     </html>
