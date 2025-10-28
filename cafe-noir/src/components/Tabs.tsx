@@ -45,7 +45,7 @@ export default function Tabs({ tabs }: TabsProps) {
                 <button
                     key={tab.title}
                     onClick={() => setActiveIndex(index)}
-                    className={`col-span-3 md:col-span-5 lg:col-span-3 text-lg md:text-2xl font-primary rounded-t-[10px] py-4 leading-5 md:leading-10 transition-colors ${getTabButtonClass(index, isActive)}`}
+                    className={`col-span-3 cursor-pointer md:col-span-5 lg:col-span-3 text-lg md:text-2xl font-primary rounded-t-[10px] py-4 leading-5 md:leading-10 transition-colors ${getTabButtonClass(index, isActive)}`}
                 >
                     {tab.title}
                 </button>
