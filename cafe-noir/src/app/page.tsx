@@ -4,10 +4,12 @@ import Menu from '@/components/sections/Menu';
 import Reviews from '@/components/sections/Reviews';
 import FindUs from '@/components/sections/FindUs';
 import Contact from '@/components/sections/ContactSection';
+import IntroLoader from '@/components/sections/IntroLoader';
 
 export default function Home() {
   return (
     <div className="bg-almond">
+      <IntroLoader />
       <HomeSection />
       <Menu />
       <Reviews />

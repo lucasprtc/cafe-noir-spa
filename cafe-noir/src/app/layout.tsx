@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { LenisProvider } from "@/components/ScrollSmooth";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import IntroLoader from "@/components/sections/IntroLoader";
 
 const garamondBook = localFont({
   src: '../../public/fonts/itc-garamond-std-book-narrow.otf',

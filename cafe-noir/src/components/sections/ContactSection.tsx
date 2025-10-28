@@ -27,7 +27,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="flex flex-col md:gap-9 md:flex-row md:py-[50px] md:px-8 ">
-        <div className="h-full max-h-216 md:w-[50%] flex flex-col justify-center space-y-3 container-grid pb-9 bg-dark-blue md:py-6 lg:py-10 md:px-[46px] md:rounded">
+        <div className="h-full md:w-[50%] flex flex-col justify-center space-y-3 container-grid pb-9 bg-dark-blue md:py-6 lg:py-10 md:px-[46px] md:rounded">
             <img src="/About/ContactUs.svg" alt="" className="object-cover w-full" />
             <img src="/About/ContactUs.svg" alt="" className="object-cover w-full" />
             <img src="/About/ContactUs.svg" alt="" className="object-cover w-full" />

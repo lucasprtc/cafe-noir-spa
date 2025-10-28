@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <section id="contact" className="relative  bg-dark-blue container-grid overflow-hidden">
         <img src="/About/mascotAlmond.svg" alt="" className="absolute w-[100px] md:w-[150px] lg:w-[200px] -top-[20%] md:-top-[30%] lg:-top-[40%] left-[38%] md:left-[75%] lg:left-[80%]" />
-        <img src="/About/mascotAlmond.svg" alt="" className="absolute w-[100px] md:w-[150px] lg:w-[200px] -bottom-[10%] md:-bottom-[20%] lg:-bottom-[30%] left-0" />
+        <img src="/About/mascotAlmond.svg" alt="" className="absolute w-[100px] md:w-[150px] lg:w-[200px] -bottom-[10%] md:-bottom-[20%] lg:-bottom-[30%] xl:-bottom-[45%] left-0" />
         <div className="grid-layout grid-gap pt-9 pb-5 md:pt-5 md:pb-5">
             <div className="col-span-6 md:col-span-2 flex flex-row md:flex-col justify-between md:justify-start md:items-start md:gap-3">
                 <img src="/About/logo.svg" alt="" className="" />

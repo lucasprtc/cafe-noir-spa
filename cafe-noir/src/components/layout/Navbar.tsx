@@ -8,11 +8,26 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-    const lenis = useLenis();
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [windowHeight, setWindowHeight] = useState<number>(0)
+  const lenis = useLenis();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+
+  useEffect(() => {
+    setWindowHeight(window.innerHeight)
+    const checkSize = () => {
+      setIsDesktop(window.innerHeight >= 768);
+    };
+
+    checkSize(); // Vérifie au montage
+    window.addEventListener('resize', checkSize);
+
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
 
   // ✅ Fonction pour scroller vers une section avec Lenis
   
@@ -28,6 +43,7 @@ export default function Navbar() {
         if (targetElement) {
             lenis.scrollTo(targetElement, { offset: offset, duration: 1 });
         }
+        toggleMenu();
     };
 
   useEffect(() => {
@@ -56,10 +72,10 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   const menuItems = [
-    { label: 'About', href: '#about', offset: -80 },
-    { label: 'Menu', href: '#menu', offset: -24 },
-    { label: 'Localisation', href: '#localisation', offset: 0 },
-    { label: 'Contact', href: '#contact', offset: 0 },
+    { label: 'About', href: '#home', offset: isDesktop ? windowHeight : windowHeight + 390 },
+    { label: 'Menu', href: '#menu', offset: isDesktop ? -24 : -96 },
+    { label: 'Localisation', href: '#localisation', offset: isDesktop ? 0 : -96 },
+    { label: 'Contact', href: '#contact', offset: -30 },
   ];
 
   return (
@@ -115,7 +131,7 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <div
-            className={`${isOpen ? 'h-60 pt-5' : 'h-0'} bg-dark-blue transition-all overflow-hidden`}
+            className={`${isOpen ? 'h-60 pt-5' : 'h-0'} block md:hidden bg-dark-blue transition-all overflow-hidden`}
           >
             {menuItems.map((item, index) => (
               <div
@@ -155,14 +171,14 @@ export default function Navbar() {
             <div className="text-2xl font-bold text-blue-600 mb-8">MonLogo</div>
             <nav className="space-y-4">
               {menuItems.map((item) => (
-                <Link
+                <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => scrollToSection(e, item.href, item.offset)}
                   className="block text-gray-700 hover:text-blue-600 text-lg transition-colors duration-200"
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
