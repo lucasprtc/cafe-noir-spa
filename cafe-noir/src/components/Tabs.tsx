@@ -64,8 +64,8 @@ export default function Tabs({ tabs }: TabsProps) {
                 key={item.name}
                 className={`flex justify-between border-b md:border-b-2 ${activeIndex === 0 ? 'border-almond': 'border-dark-blue'} py-2`}
               >
-                <span>{item.name}</span>
-                <span>{typeof item.price === "number" ? `${item.price.toFixed(2)}€` : item.price}</span>
+                <span className="font-primary">{item.name}</span>
+                <span className="font-primary">{typeof item.price === "number" ? `${item.price.toFixed(2)}€` : item.price}</span>
               </li>
             ))}
           </ul>
