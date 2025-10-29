@@ -127,7 +127,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-8 grid grid-cols-6 md:grid-cols-8 h-[150vh] md:h-[275vh] grid-gap grid-rows-1" ref={imagePinSection}>
+        <div className="md:col-span-8 grid grid-cols-6 md:grid-cols-8 h-[125vh] md:h-[275vh] grid-gap grid-rows-1" ref={imagePinSection}>
           <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between relative">
             <img
               ref={menInstallRef}
