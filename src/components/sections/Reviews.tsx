@@ -18,8 +18,8 @@ const comments: Comment[] = [
     color: "#ED6956",
   },
   {
-    description: "Un ajout charmant au paysage café d'Helsinki ! Un design minimaliste et élégant, un café exceptionnel à des prix abordables (2 € le double expresso, 3 € le cappuccino, 3,5 € le latte) et le sourire de tout le personnel sont toujours un plus 😊",
-    name: "William Namessi",
+    description: "My new favourite place in Helsinki 🤩 the quality of the coffee is one of a kind …",
+    name: "Liz Pa",
     color: "#AAD0F0",
   },
 ];

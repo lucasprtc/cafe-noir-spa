@@ -48,8 +48,8 @@ export default function Home() {
         const startTargetMen = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.34 : 0.15);
         const startTargetCup = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.06 : 0.02);
         const endTarget = isDesktop ?
-          holdCupRef.current!.clientHeight + 24 :
-          AboutTextRef.current!.clientHeight + holdCupRef.current!.clientHeight + 16;
+          holdCupRef.current!.clientHeight + 28 :
+          AboutTextRef.current!.clientHeight + holdCupRef.current!.clientHeight + 20;
         const endTargetViewport = isDesktop ?
           imagePinSection.current!.clientHeight * 0.06 + holdCupRef.current!.height:
           imagePinSection.current!.clientHeight * 0.02 + holdCupRef.current!.height;
@@ -69,8 +69,8 @@ export default function Home() {
 
         ScrollTrigger.create({
           trigger: imagePinSection.current,
-          start: `top top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 16}`,
-          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 16 + endTargetViewport}`,
+          start: `top top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 20}`,
+          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 20 + endTargetViewport}`,
           pin: [holdCupRef.current],
           pinSpacing: false,
           invalidateOnRefresh: true,
@@ -78,8 +78,8 @@ export default function Home() {
 
         ScrollTrigger.create({
           trigger: imagePinSection.current,
-          start: `top+=${startTargetMen - startTargetCup} top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 16}`,
-          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 16 + endTargetViewport}`,
+          start: `top+=${startTargetMen - startTargetCup} top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 20}`,
+          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 20 + endTargetViewport}`,
           pin: [menInstallRef.current],
           pinSpacing: false,
           invalidateOnRefresh: true,
@@ -133,14 +133,14 @@ export default function Home() {
               ref={menInstallRef}
               src="/About/ManInstall.webp"
               alt=""
-              className="rounded absolute top-[15%] md:top-[34%]"
+              className="rounded absolute top-[15%] md:top-[34%] border-4 border-dark-blue"
               />
             <div className=""></div>
             <img
               ref={discutionImgRef}
               src="/About/discution.png"
               alt=""
-              className="object-cover w-full row-start-4 md:row-start-3 rounded"
+              className="object-cover w-full row-start-4 md:row-start-3 rounded border-4 border-dark-blue"
             />
           </div>
           <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between relative">
@@ -148,14 +148,14 @@ export default function Home() {
               ref={holdCupRef}
               src="/About/HoldCup.webp"
               alt=""
-              className="rounded z-20 w-full absolute top-[2%] md:top-[6%]"
+              className="rounded z-20 w-full absolute top-[2%] md:top-[6%] border-4 border-dark-blue"
               />
             <div className=""></div>
             <img
               ref={coffeeImgRef}
               src="/About/coffee.png"
               alt=""
-              className="object-cover w-full rounded"
+              className="object-cover w-full rounded border-4 border-dark-blue"
             />
           </div>
         </div>

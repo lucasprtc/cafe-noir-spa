@@ -39,7 +39,7 @@
         return (
             <div
             ref={containerRef}
-            className="fixed inset-0 bg-blue-600 z-50 flex items-center justify-center"
+            className="fixed inset-0 bg-dark-blue z-50 flex items-center justify-center"
             >
                 <img ref={textRef} className="opacity-0 w-[300px] md:w-[400px]" src="/About/logo.svg" alt="" />
             </div>
