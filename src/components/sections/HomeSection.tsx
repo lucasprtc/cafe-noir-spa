@@ -3,6 +3,7 @@
 
 import { use, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import TextReveal from "../TextReveal";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,14 +46,14 @@ export default function Home() {
         
         const textHeight = AboutTextRef.current!.clientHeight;
         
-        const startTargetMen = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.34 : 0.15);
-        const startTargetCup = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.06 : 0.02);
+        const startTargetMen = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.34 : 0);
+        const startTargetCup = (imagePinSection.current?.clientHeight ?? 0)  * (isDesktop ? 0.04 : 0);
         const endTarget = isDesktop ?
-          holdCupRef.current!.clientHeight + 28 :
+          holdCupRef.current!.clientHeight + 42 :
           AboutTextRef.current!.clientHeight + holdCupRef.current!.clientHeight + 20;
         const endTargetViewport = isDesktop ?
-          imagePinSection.current!.clientHeight * 0.06 + holdCupRef.current!.height:
-          imagePinSection.current!.clientHeight * 0.02 + holdCupRef.current!.height;
+          imagePinSection.current!.clientHeight * 0.04 + holdCupRef.current!.height + 9:
+          imagePinSection.current!.clientHeight * 0.04 + holdCupRef.current!.height;
 
 
         if (isDesktop) {            
@@ -69,52 +70,117 @@ export default function Home() {
 
         ScrollTrigger.create({
           trigger: imagePinSection.current,
-          start: `top top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 20}`,
-          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 20 + endTargetViewport}`,
+          start: `top top+=`,
+          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 24 + holdCupRef.current!.height}`,
           pin: [holdCupRef.current],
           pinSpacing: false,
           invalidateOnRefresh: true,
         });
 
-        ScrollTrigger.create({
-          trigger: imagePinSection.current,
-          start: `top+=${startTargetMen - startTargetCup} top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 20}`,
-          end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 20 + endTargetViewport}`,
-          pin: [menInstallRef.current],
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        });
+        if (!isDesktop) {
+          ScrollTrigger.create({
+            trigger: imagePinSection.current,
+            start: `top+=${isDesktop ? startTargetMen - startTargetCup : ''} top+=${isDesktop ? '0' : sectionRef.current!.clientHeight + 20}`,
+            end: `bottom-=${endTarget} top+=${isDesktop ? endTargetViewport : sectionRef.current!.clientHeight + 24 + holdCupRef.current!.height}`,
+            pin: [menInstallRef.current],
+            pinSpacing: false,
+            invalidateOnRefresh: true,
+          });
+        }
       });
 
       return () => ctx.revert();
     }, []);
 
   return (
-    <section id="home" className="h-full relative overflow-hidden">
-      <img src="/About/mascotBlue.svg" alt="" className="sm:h-[40%] md:h-[35%] lg:h-[40%] absolute z-0 top-[130vw] sm:top-[5%] md:top-[10%] lg:top-[5%] xl:top-24 sm:-right-30 md:-right-[20%] lg:-right-[30%] xl:right-[2%]" />
+    <section id="home" className="h-full relative overflow-hidden" >
+        <img src="/About/mascotBlue.svg" alt="" className="h-[12%] sm:h-[40%] md:h-[35%] lg:h-[35%] absolute z-0 top-[5%] -right-[10vw] sm:top-[5%] md:top-[10%] lg:top-[5%] xl:top-10 sm:-right-30 md:-right-[20%] lg:-right-[30%] xl:right-[15%]" />
+      {/* <TextReveal delay={0} yOffset={0} className="h-[12%] sm:h-[40%] md:h-[35%] lg:h-[35%] absolute z-0 top-[5%] -right-[10vw] sm:top-[5%] md:top-[10%] lg:top-[5%] xl:top-10 sm:-right-30 md:-right-[20%] lg:-right-[30%] xl:right-[15%]">
+        <img src="/About/mascotBlue.svg" alt="" className="" />
+      </TextReveal> */}
       <div className="container-grid grid-gap flex flex-col md:grid md:grid-cols-12 pb-9">
         <div ref={sectionRef} className="flex flex-col relative md:col-span-4">
           <div className="h-full md:h-screen grid grid-cols-6 md:flex md:items-center md:grid-cols-4 grid-gap ">
-            <div className="col-start-1 col-span-6 md:col-span-4 md:h-fit  z-30 pt-[30vw] sm:pt-[25vw] md:pt-0 md:pb-[12vw] lg:pb-0 lg:pt-10">
-              <h1 className="font-bold text-dark-blue text-[4.8rem] lg:text-[8.5vw] text-nowrap leading-18 md:leading-[7.8vw]  ">
-                Changing
-                <br />
-                the Way
-                <br />
-                the City
-                <br />
-                Drinks Coffee
-              </h1>
-              <h2 className="font-secondary text-dark-blue text-lg md:text-[2.4vw] leading-[2.5vw]">
-                Your new daily rituals in Helsinki
-              </h2>
+            <div className="col-start-1 col-span-6 md:col-span-4 md:h-fit z-30 pt-[10vw] sm:pt-[25vw] md:pt-0 md:pb-[12vw] lg:pb-[10vh] ">
+              <TextReveal yOffset={50}>
+                <h1 className=" font-bold text-dark-blue text-[4.8rem] lg:text-[8.5vw] text-nowrap leading-18 md:leading-[7.8vw]  ">
+                  Changing
+                  <br />
+                  the Way
+                  <br />
+                  the City
+                  <br />
+                  Drinks Coffee
+                </h1>
+              </TextReveal>
+              <TextReveal delay={0.1} yOffset={50}>
+                <h2 className="font-secondary text-dark-blue text-lg md:text-[2.4vw] leading-[2.5vw]">
+                  Your new daily rituals in Helsinki
+                </h2>
+              </TextReveal>
             </div>
           </div>
-          <div className="hidden md:block flex-1" ref={pinnedSectionRef}>
+          <div className="hidden md:block flex-1 mt-[12vh]" ref={pinnedSectionRef}>
             <div className="w-full col-span-5" ref={AboutTextRef}>
+              <TextReveal>
+                <h3 className="text-dark-blue text-2xl md:text-4xl lg:text-5xl font-bold col-span-3 md:col-span-4 md:col-start-1">
+                  About Us
+                </h3>
+              </TextReveal>
+              <TextReveal delay={0.1}>
+                <p className="text-dark-blue text-base lg:text-lg font-primary col-span-4 md:col-start-1">
+                  At Café Noir, we believe coffee is more than a drink — it’s a daily
+                  ritual. Nestled in the heart of Helsinki, our space blends the calm
+                  of ultramarine hues, the warmth of natural wood, and the sleekness
+                  of stainless steel to create a moment of pause in the city’s rhythm.
+                  Each cup we serve embodies precision, creativity, and a bold sense
+                  of style — inviting you to slow down, reconnect, and experience
+                  coffee in a new way.
+                </p>
+              </TextReveal>
+            </div>
+          </div>
+        </div>
+        <div className="md:col-span-8 grid grid-cols-6 md:grid-cols-8 h-screen md:h-[260vh] grid-gap grid-rows-1" ref={imagePinSection}>
+          <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between md:justify-end md:gap-4 relative z-30">
+            <img
+              ref={menInstallRef}
+              src="/About/ManInstall.webp"
+              alt=""
+              className="rounded absolute md:relative w-full box-border border-4 border-dark-blue"
+              />
+            <div className=""></div>
+            <img
+              ref={discutionImgRef}
+              src="/About/discution.png"
+              alt=""
+              className="object-cover w-full row-start-4 md:row-start-3 rounded box-border border-4 border-dark-blue"
+            />
+          </div>
+          <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between relative z-30">
+            <img
+              ref={holdCupRef}
+              src="/About/HoldCup.webp"
+              alt=""
+              className="rounded z-20 w-full absolute md:top-[4%] box-border border-4 border-dark-blue"
+              />
+            <div className=""></div>
+            <img
+              ref={coffeeImgRef}
+              src="/About/coffee.png"
+              alt=""
+              className="object-cover w-full rounded box-border border-4 border-dark-blue"
+            />
+          </div>
+        </div>
+        <div className="grid md:hidden grid-cols-6 grid-gap  2xl:col-span-3 col-start-1 md:row-start-1">
+          <div className="w-full h-fit col-span-5">
+            <TextReveal yOffset={50}>
               <h3 className="text-dark-blue text-2xl md:text-4xl lg:text-5xl font-bold col-span-3 md:col-span-4 md:col-start-1">
                 About Us
               </h3>
+            </TextReveal>
+            <TextReveal delay={0.1} yOffset={50}>
               <p className="text-dark-blue text-base lg:text-lg font-primary col-span-4 md:col-start-1">
                 At Café Noir, we believe coffee is more than a drink — it’s a daily
                 ritual. Nestled in the heart of Helsinki, our space blends the calm
@@ -124,55 +190,7 @@ export default function Home() {
                 of style — inviting you to slow down, reconnect, and experience
                 coffee in a new way.
               </p>
-            </div>
-          </div>
-        </div>
-        <div className="md:col-span-8 grid grid-cols-6 md:grid-cols-8 h-[125vh] md:h-[275vh] grid-gap grid-rows-1" ref={imagePinSection}>
-          <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between relative">
-            <img
-              ref={menInstallRef}
-              src="/About/ManInstall.webp"
-              alt=""
-              className="rounded absolute top-[15%] md:top-[34%] border-4 border-dark-blue"
-              />
-            <div className=""></div>
-            <img
-              ref={discutionImgRef}
-              src="/About/discution.png"
-              alt=""
-              className="object-cover w-full row-start-4 md:row-start-3 rounded border-4 border-dark-blue"
-            />
-          </div>
-          <div className="col-span-3 md:col-span-4 h-full flex flex-col justify-between relative">
-            <img
-              ref={holdCupRef}
-              src="/About/HoldCup.webp"
-              alt=""
-              className="rounded z-20 w-full absolute top-[2%] md:top-[6%] border-4 border-dark-blue"
-              />
-            <div className=""></div>
-            <img
-              ref={coffeeImgRef}
-              src="/About/coffee.png"
-              alt=""
-              className="object-cover w-full rounded border-4 border-dark-blue"
-            />
-          </div>
-        </div>
-        <div className="grid md:hidden grid-cols-6 grid-gap  2xl:col-span-3 col-start-1 md:row-start-1">
-          <div className="w-full h-fit col-span-5">
-            <h3 className="text-dark-blue text-2xl md:text-4xl lg:text-5xl font-bold col-span-3 md:col-span-4 md:col-start-1">
-              About Us
-            </h3>
-            <p className="text-dark-blue text-base lg:text-lg font-primary col-span-4 md:col-start-1">
-              At Café Noir, we believe coffee is more than a drink — it’s a daily
-              ritual. Nestled in the heart of Helsinki, our space blends the calm
-              of ultramarine hues, the warmth of natural wood, and the sleekness
-              of stainless steel to create a moment of pause in the city’s rhythm.
-              Each cup we serve embodies precision, creativity, and a bold sense
-              of style — inviting you to slow down, reconnect, and experience
-              coffee in a new way.
-            </p>
+            </TextReveal>
           </div>
         </div>
       </div>

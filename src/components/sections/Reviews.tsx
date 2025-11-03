@@ -1,5 +1,6 @@
 // components/Menu.tsx
 import InfiniteSLider, { Comment } from "../InfiniteSlider";
+import TextReveal from "../TextReveal";
 
 const comments: Comment[] = [
   {
@@ -27,9 +28,9 @@ const comments: Comment[] = [
 export default function Reviews() {
   return (
     <section className="py-9 md:py-[50px]">
-      <div className="grid-layout grid-gap container-grid mb-9 lg:mb-18">
+      <TextReveal yOffset={50} className="grid-layout grid-gap container-grid mb-9 lg:mb-18">
         <h3 className="col-span-6 col-start-2 md:col-span-12 text-right text-lg md:text-2xl font-secondary text-dark-blue">A sip of quality. A taste of community</h3>
-      </div>
+      </TextReveal>
       <InfiniteSLider comments={comments} />
     </section>
   );
